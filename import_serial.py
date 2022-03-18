@@ -13,11 +13,11 @@ while(1):
 
         # Read data out of the buffer until a carraige return / new line is found
         #serialString = serialPort.readline()
-        serialString = serialPort.read(2)
+        serialString = serialPort.read(1)
         #serialString = serialPort.read(128).replace("b'\\r\\r\\n","")
         # Print the contents of the serial data
         #print(serialString.decode('Ascii'))
-        #print(binascii.unhexlify('0%x' % serialString))
+        #print(binascii.unhexlify('0%x' % serialString))A
         #print(int(binascii.hexlify(serialString),16))
         print (int.from_bytes(serialString, byteorder='big'))
 
