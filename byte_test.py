@@ -13,7 +13,7 @@ while(1):
 
         # Read data out of the buffer until a carraige return / new line is found
         #serialString = serialPort.readline()
-        serialString = (serialPort.read(1)[0] << 8) | serialPort.read(1)
+        serialString = ((int.from_bytes(serialString, byteorder='big')) << 8) | (int.from_bytes(serialString, byteorder='big'))
 
         #print (bin(int.from_bytes(serialString, byteorder='big')))
         print (serialString)
