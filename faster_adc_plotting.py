@@ -11,8 +11,8 @@ Values = []
 with open('dfs_uart.csv','r') as csvfile:
     lines = csv.reader(csvfile, delimiter=',')
     for row in lines:
-        Names.append(row[0])
-        Values.append(float(row[1]))
+        Names.append(float (row[0]))
+        Values.append(float (row[1]))
 
 class MainWindow(QtWidgets.QMainWindow):
 
@@ -25,7 +25,7 @@ class MainWindow(QtWidgets.QMainWindow):
         #Add Background colour to white
         self.graphWidget.setBackground('w')
         # Add Title
-        self.graphWidget.setTitle("Your Title Here", color="b", size="30pt")
+        self.graphWidget.setTitle("ADC Sampling Report", color="b", size="30pt")
         # Add Axis Labels
         styles = {"color": "#f00", "font-size": "20px"}
         self.graphWidget.setLabel("left", "ADC Value", **styles)
@@ -37,6 +37,7 @@ class MainWindow(QtWidgets.QMainWindow):
         #Set Range
         #self.graphWidget.setXRange(0, 10, padding=0)
         #self.graphWidget.setYRange(20, 55, padding=0)
+        self.graphWidget.setMouseEnabled(y=False) # Only allow zoom in X-axis
 
         pen = pg.mkPen(color=(255, 0, 0))
         self.graphWidget.plot(Names, Values, name="Sensor 1",  pen=pen)
@@ -47,5 +48,4 @@ def main():
     main.show()
     sys.exit(app.exec_())
 
-if __name__ == '__main__':
-    main()
+main()
