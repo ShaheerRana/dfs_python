@@ -2,7 +2,7 @@ import serial
 import binascii
 print ("Active");
 serialPort = serial.Serial(port = "COM5", baudrate=400000, bytesize=8, timeout=0, stopbits=serial.STOPBITS_ONE)   
-serialPort.set_buffer_size(rx_size = 5) 
+serialPort.set_buffer_size(rx_size = 3) 
 serialString = b'\x00';                          # Used to hold data coming over UART
 #f = open('dfs_uart.txt','wb') 
 #f.write(b"0x100")
@@ -20,7 +20,7 @@ while(1):
         #print(serialString.decode('Ascii'))
         #print(binascii.unhexlify('0%x' % serialString))A
         #print(int(binascii.hexlify(serialString),16))
-        print (int.from_bytes(serialString, byteorder='little') / 1.33 / 16)
+        #print (int.from_bytes(serialString, byteorder='little') / 1.33 / 16)
 
         #f.write(serialString)
         f.write(str(counter) + ","+str(int.from_bytes(serialString, byteorder='little') / 1.33 / 16)+",\n")
