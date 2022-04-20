@@ -1,4 +1,4 @@
-### Dragonfly Systems Radio Prototype Python Scripts
+### Dragonfly Systems Signal Acquisition Prototype Python Scripts
 
 Bundled with: https://github.com/ShaheerRana/dfs
 
